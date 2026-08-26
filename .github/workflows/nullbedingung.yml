@@ -26,6 +26,12 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
+        with:
+          # git-commit-id-plugin 2.2.2 laeuft die Historie bis zum naechsten Tag
+          # ab. Ein flacher Klon laesst es scheitern - das ist eine Eigenschaft
+          # des Klons, nicht des Projekts, und deshalb kein Befund der
+          # Nullbedingung.
+          fetch-depth: 0
 
       - name: JDK 17 einrichten
         uses: actions/setup-java@v5
