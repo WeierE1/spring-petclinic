@@ -33,7 +33,7 @@ jobs:
           # Nullbedingung.
           fetch-depth: 0
 
-      - name: JDK 17 einrichten
+      - name: JDK 8 einrichten
         uses: actions/setup-java@v5
         with:
           distribution: temurin
