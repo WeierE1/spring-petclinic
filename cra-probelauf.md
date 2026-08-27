@@ -5,7 +5,7 @@ Dieses Issue ist **kein Befund** und beschreibt keine Schwachstelle. Es
 existiert, damit die vier schreibenden Adapter-Operationen einmal gegen ein
 echtes Repository ausgefuehrt und ihre Ausgabe zitiert werden kann.
 
-Zeitpunkt: 2026-08-27T11:55:03.601226841Z
+Zeitpunkt: 2026-08-27T12:01:19.122566961Z
 Ziel:      WeierE1/spring-petclinic
 
 Der Adapter kann dieses Issue nicht schliessen und nicht loeschen - das sind
