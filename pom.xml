@@ -119,6 +119,48 @@
 
   <build>
     <plugins>
+      <!-- CRA-Tor (WeierE1/CRA-Private Issue #40, docs/spec.md Paragraph 25):
+           maven-enforcer Dependency-Convergence, festgenagelt, an validate.
+           Es autorisiert KEIN Automerge und setzt keinen Merge-Zwang - es gibt
+           dem Menschen etwas Belastbares zu lesen: divergierende transitive
+           Versionen sind die uebliche Ursache eines NoSuchMethodError im Betrieb.
+
+           VORBESTAND, gemessen am 04.09.2026 auf 12a83c2 (Details und
+           woertliche Ausgabe in .cra/enforcer-vorbestand.md): genau EINE
+           divergierende Koordinate, org.webjars:jquery - 2.2.4 direkt gegen
+           1.11.1 ueber jquery-ui 1.11.4 und bootstrap 3.3.6 (drei Pfade).
+           Ausgeschlossen ist genau dieser vorbestehende KNOTEN
+           (org.webjars:jquery:[1.11.1] - in Bereichsform, denn eine nackte
+           Version heisst im enforcer-Muster ">= Version" und schluckte jede
+           jquery-Version; gemessen 04.09.2026), nicht die Koordinate: jede weitere
+           jquery-Version im Baum ist eine NEUE Divergenz und faellt durch.
+           Analog zur Vorbestandsregel des Testtors (Paragraph 24.4 Nr. 3):
+           Vorbestand zaehlen und berichten, nicht wachsen lassen. Wer den
+           Vorbestand aufloest, streicht den Eintrag hier UND dort - mit Datum. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.6.3</version>
+        <executions>
+          <execution>
+            <id>cra-dependency-convergence</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <dependencyConvergence>
+                  <excludes>
+                    <!-- Vorbestand 04.09.2026, siehe .cra/enforcer-vorbestand.md -->
+                    <exclude>org.webjars:jquery:[1.11.1]</exclude>
+                  </excludes>
+                </dependencyConvergence>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
