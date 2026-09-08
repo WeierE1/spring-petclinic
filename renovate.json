@@ -4,7 +4,19 @@
     "VORLAGE fuer die renovate.json je Fork. spec.md 15.3: ein zentrales Konfigurationsrepository haelt das gemeinsame Preset, jedes Repository erweitert es und ergaenzt nur wirklich Lokales.",
     "Deshalb ist diese Datei kurz, und deshalb soll sie kurz bleiben - jede Zeile, die hier statt im Preset steht, driftet zwischen den Forks.",
     "Die Ausnahmen nach 28.2 kommen spaeter HIER hinein, nicht ins Preset: sie sind repo-spezifisch und tragen ein Review-Datum.",
-    "Renovate akzeptiert KEINE //-Schluessel als Kommentar - nur description. Gemessen am 26.08.2026: Invalid configuration option: //"
+    "Renovate akzeptiert KEINE //-Schluessel als Kommentar - nur description. Gemessen am 26.08.2026: Invalid configuration option: //",
+    "Ausnahme vom 07.09.2026 (Entscheidung des Menschen, CRA-Private #33 / Abnahmepruefung 32/21): spring-boot-starter-actuator als Risikouebernahme nach 28.2 - betroffen, Fix aufgeschoben. Kein Erreichbarkeits- oder Betroffenheitsurteil (21.2, 37.1); der grund nennt nur Gemessenes. Review-Datum ist Pflicht (28.3)."
   ],
-  "extends": ["github>WeierE1/CRA-Private//renovate-presets/kontext-a"]
+  "extends": [
+    "github>WeierE1/CRA-Private//renovate-presets/kontext-a"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "org.springframework.boot:spring-boot-starter-actuator"
+      ],
+      "enabled": false,
+      "description": "cra-ausnahme | advisory: GHSA-mgvc-8q2h-5pgc | grund: Risikouebernahme - fuer die 1.5.x-Linie keine schliessende Version, Fix erst Spring Boot 3.5.12 / 4.0.4 jenseits der Framework-Grenze (gemessen 31.08.2026) | review: 2026-12-06"
+    }
+  ]
 }
