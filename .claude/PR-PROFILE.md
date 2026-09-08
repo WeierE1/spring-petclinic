@@ -71,3 +71,18 @@ Für §22.4: eine Dreierschleife kostet hier unter 6 Minuten und ist bezahlbar.
 
 **Keine bekannt** (Stand 2026-09-01). Kein dokumentierter Fall von rot→grün auf
 demselben Commit.
+
+## Was „grün" nach §18.4 heißt — die maßgeblichen Prüfungen
+
+**Menschliche Entscheidung vom 08.09.2026** (CRA-Private #44). Dieser Abschnitt
+ist **nicht gemessen, sondern gesetzt** — anders als alles darüber.
+
+Maßgeblich ist **`nullbedingung`** (`mvn -B -ntp verify`) — auf diesem Fork der
+einzige Workflow, also fällt hier keine Auswahl an. Der Abschnitt steht
+trotzdem, damit der Anhebungs-Agent die Antwort **liest** statt sie aus der Zahl
+der Workflows zu **schließen**: ein zweiter Workflow, der später dazukommt, wäre
+sonst stillschweigend maßgeblich.
+
+Ein rotes **fremdes** Ergebnis wird im Bericht **zitiert**, mit Lauf-ID und
+Ursache; es zählt nicht als Fehlversuch und löst kein
+`ISSUE_ENGINE_GESCHEITERT` aus (§18.4).
