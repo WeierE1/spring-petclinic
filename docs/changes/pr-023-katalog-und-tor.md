@@ -4,8 +4,8 @@
 |---|---|
 | PR | [WeierE1/spring-petclinic#23](https://github.com/WeierE1/spring-petclinic/pull/23) |
 | Branch | `docs/katalog-und-tor` → `1.5.x` |
-| Merged | pending-datum-023 |
-| Size | pending-size-023 |
+| Merged | 2026-09-09 09:08 UTC |
+| Size | +823 / −3 über 10 Dateien |
 | Issues | CRA-Private#44 (Nachlauf) |
 | Review | Mensch |
 
