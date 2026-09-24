@@ -8,7 +8,7 @@
     "Ausnahme vom 07.09.2026 (Entscheidung des Menschen, CRA-Private #33 / Abnahmepruefung 32/21): spring-boot-starter-actuator als Risikouebernahme nach 28.2 - betroffen, Fix aufgeschoben. Kein Erreichbarkeits- oder Betroffenheitsurteil (21.2, 37.1); der grund nennt nur Gemessenes. Review-Datum ist Pflicht (28.3)."
   ],
   "extends": [
-    "github>WeierE1/CRA-Private//renovate-presets/kontext-a"
+    "github>WeierE1/cra-renovate-presets//kontext-a"
   ],
   "packageRules": [
     {
